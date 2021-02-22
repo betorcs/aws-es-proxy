@@ -428,6 +428,10 @@ func addHeaders(src, dest http.Header) {
 	if val, ok := src["Kbn-Xsrf"]; ok {
 		dest.Add("Kbn-Xsrf", val[0])
 	}
+
+	if val, ok := src["Authorization"]; ok {
+		dest.Add("Authorization", val[0])
+	}
 }
 
 // Signer.Sign requires a "seekable" body to sum body's sha256
